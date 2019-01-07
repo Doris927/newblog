@@ -17,8 +17,7 @@ public class BlogController {
         this.sample = sample;
     }
 
-    @RequestMapping("/hello")
-
+    @RequestMapping("/*")
     public String helloTest(){
         return "index";
     }
