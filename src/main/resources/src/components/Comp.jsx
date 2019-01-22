@@ -5,7 +5,7 @@ export default class Comp extends React.Component{
         return <div> this is comp {this.state.age}</div>
     }
 
-    constructor(){
+    constructor(props){
         super();
         this.state={
             age: 18

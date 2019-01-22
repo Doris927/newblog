@@ -4,7 +4,7 @@ class Page1 extends React.Component{
     render(){
         return(
             <div>
-                <div>This is Page1!</div>
+                <div>This is Page3!</div>
             </div>
         );
     }
