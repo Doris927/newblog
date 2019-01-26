@@ -13,23 +13,21 @@ import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import Hidden from '@material-ui/core/Hidden';
 //import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import Icon from '@material-ui/core/Icon';
 import red from '@material-ui/core/colors/red';
-import CardHeader from '@material-ui/core/CardHeader';
+
 import Avatar from '@material-ui/core/Avatar';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import Menu from '@material-ui/core/Menu';
+import Pagination from './Pagination.jsx';
+import BlogItem from './BlogPage.jsx';
+import BlogPage from "./BlogPage.jsx";
 
 const styles = theme => ({
     layout: {
@@ -235,47 +233,6 @@ class  NaviBar extends React.Component{
     }
 }
 
-class BlogItem extends React.Component{
-    constructor(props){
-        super(props);
-    }
-    render(){
-        const { classes } = this.props;
-        return(
-        <Card className={classes.card}>
-            <CardActionArea>
-                <CardHeader
-                    title={this.props.title}
-                    subheader={this.props.date}
-                />
-
-                <CardContent>
-
-
-                    <Typography component="p">
-                        {this.props.description}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-
-            <CardActions>
-                <Button size="small" color="primary">
-                    Continue
-                </Button>
-                <Button size="small" color="primary">
-                    Share
-                </Button>
-            </CardActions>
-        </Card>
-        );
-    }
-}
-
-BlogItem.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
-const BlogItemShow = withStyles(styles)(BlogItem);
-
 
 class Home extends React.Component{
 
@@ -343,11 +300,8 @@ class Home extends React.Component{
                         <Grid container spacing={40} className={classes.mainGrid}>
                             {/* Main content */}
                             <Grid item xs={12} md={8}>
-                                {
-                                    featuredPosts.map(post => (
-                                        <BlogItemShow  key={post.title} {...post}></BlogItemShow>
-                                    ))
-                                }
+                                <BlogPage/>
+                                <Pagination total={12}/>
 
                             </Grid>
                             {/* End main content */}
